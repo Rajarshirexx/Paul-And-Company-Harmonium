@@ -1,6 +1,8 @@
 import Hero from './Sections/Hero';
 import AboutSection from './Sections/About';
 import ProductSection from './Sections/ProductSection';
+import CTASection from './Sections/CTASection';
+import ContactSection from './Sections/ContactSection';
 
 export default function Home() {
     return (
@@ -8,7 +10,8 @@ export default function Home() {
             <Hero />
             <AboutSection />
             <ProductSection />
-            {/* Other sections will go here */}
+            <CTASection />
+            <ContactSection />
         </div>
     );
 }
