@@ -1,7 +1,10 @@
+import Hero from './Sections/Hero';
+
 export default function Home() {
     return (
-        <div>
-            <h1>Home</h1>
+        <div className="overflow-x-hidden">
+            <Hero />
+            {/* Other sections will go here */}
         </div>
     );
 }

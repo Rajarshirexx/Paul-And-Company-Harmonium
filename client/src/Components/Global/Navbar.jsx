@@ -90,8 +90,8 @@ export default function Navbar() {
 
             {/* Mobile Navigation Drawer */}
             <div 
-                className={`fixed inset-0 bg-primary/95 z-40 md:hidden flex flex-col items-center justify-center space-y-8 transition-transform duration-500 ${
-                    isMenuOpen ? 'translate-y-0' : '-translate-y-full'
+                className={`fixed inset-0 bg-primary z-40 md:hidden flex-col items-center justify-center space-y-8 transition-all duration-500 ease-in-out ${
+                    isMenuOpen ? 'flex opacity-100' : 'hidden opacity-0'
                 }`}
             >
                 {navLinks.map((link) => (
