@@ -32,14 +32,11 @@ export default function Hero() {
               for the international community.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-scaleIn delay-500">
-              <Link to="/products" className="btn-primary flex items-center group">
-                Explore the Collection
-                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5 animate-scaleIn delay-500">
+              <Link to="/products" className="btn-primary flex items-center justify-center min-w-[200px]">
+                Our Collection
               </Link>
-              <Link to="/about" className="btn-accent px-8 py-3.5">
+              <Link to="/about" className="btn-accent flex items-center justify-center min-w-[200px]">
                 Our Story
               </Link>
             </div>
