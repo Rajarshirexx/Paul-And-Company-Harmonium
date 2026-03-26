@@ -1,9 +1,0 @@
-/* Global application styles */
-main {
-  padding-top: 80px; /* Offset for sticky navbar */
-}
-
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-}

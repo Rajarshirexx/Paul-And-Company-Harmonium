@@ -5,7 +5,7 @@ import legacyImg from '../../../assets/img-2305.jpg';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] pt-20 pb-20 overflow-hidden flex items-center bg-bg">
+    <section className="relative min-h-[90vh] pt-12 pb-20 overflow-hidden flex items-center bg-bg">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-secondary/20 -skew-x-12 transform translate-x-1/4 z-0" />
       <div className="absolute top-1/4 -left-20 w-64 h-64 bg-accent/5 rounded-full blur-3xl z-0" />
