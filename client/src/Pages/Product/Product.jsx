@@ -1,13 +1,24 @@
 import React from 'react';
 import { products } from '../../data/products';
 import ProductRow from '../../Components/UI/ProductRow';
+import overlayImg from '../../assets/overlay.jpg';
 
 export default function Product() {
   return (
     <main>
       {/* Hero Header */}
-      <section className="bg-primary pt-32 pb-24 text-center">
-        <div className="container mx-auto px-6">
+      <section className="relative bg-primary pt-32 pb-24 text-center overflow-hidden">
+        {/* Texture Overlay */}
+        <div 
+          className="absolute inset-0 opacity-50 mix-blend-overlay pointer-events-none"
+          style={{ 
+            backgroundImage: `url(${overlayImg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        
+        <div className="container mx-auto px-6 relative z-10">
           <h1 className="text-5xl md:text-7xl font-display font-bold text-secondary mb-6 animate-slideDown">
             Our <span className="text-accent italic">Instruments</span>
           </h1>
