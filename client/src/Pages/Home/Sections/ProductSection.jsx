@@ -1,6 +1,6 @@
 import React from 'react';
 import { products } from '../../../data/products';
-import ProductCard from '../../../Components/Global/ProductCard';
+import ProductCard from '../../../Components/UI/ProductCard';
 import { Link } from 'react-router-dom';
 
 export default function ProductSection() {
