@@ -90,29 +90,48 @@ export default function Navbar() {
 
             {/* Mobile Navigation Drawer */}
             <div 
-                className={`fixed inset-0 bg-primary z-40 md:hidden flex-col items-center justify-center space-y-8 transition-all duration-500 ease-in-out ${
-                    isMenuOpen ? 'flex opacity-100' : 'hidden opacity-0'
+                className={`fixed inset-0 bg-primary z-[100] md:hidden flex flex-col items-center justify-center space-y-8 transition-all duration-500 ease-in-out transform ${
+                    isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'
                 }`}
             >
+                {/* Close Button Inside Drawer */}
+                <button 
+                    className="absolute top-8 right-8 text-secondary hover:text-accent transition-colors duration-300"
+                    onClick={() => setIsMenuOpen(false)}
+                >
+                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
                 {navLinks.map((link) => (
                     <Link
                         key={link.name}
                         to={link.path}
                         onClick={() => setIsMenuOpen(false)}
-                        className={`text-2xl font-display font-medium tracking-wide ${
-                            isActive(link.path) ? 'text-accent' : 'text-secondary hover:text-accent'
-                        } transition-colors duration-300`}
+                        className={`text-3xl font-display font-bold tracking-widest ${
+                            isActive(link.path) ? 'text-accent' : 'text-secondary hover:text-accent font-light opacity-80'
+                        } transition-all duration-300 transform ${isMenuOpen ? 'translate-y-0' : 'translate-y-8'}`}
                     >
                         {link.name}
                     </Link>
                 ))}
-                <Link 
-                    to="/contact" 
-                    onClick={() => setIsMenuOpen(false)}
-                    className="btn-accent mt-4 py-3 px-10"
-                >
-                    Get a Quote
-                </Link>
+                
+                <div className={`mt-10 transition-all duration-500 delay-300 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                    <Link 
+                        to="/contact" 
+                        onClick={() => setIsMenuOpen(false)}
+                        className="btn-accent py-4 px-12 text-sm uppercase tracking-widest font-bold"
+                    >
+                        Get a Quote
+                    </Link>
+                </div>
+
+                {/* Mobile Bottom Info */}
+                <div className="absolute bottom-12 text-center text-secondary/40">
+                    <p className="text-[10px] uppercase tracking-widest mb-1">Authentic Kolkata Harmoniums</p>
+                    <p className="text-xs font-semibold">Paul & Company © {new Date().getFullYear()}</p>
+                </div>
             </div>
         </nav>
     );
