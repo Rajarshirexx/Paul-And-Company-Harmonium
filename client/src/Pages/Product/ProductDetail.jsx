@@ -5,7 +5,7 @@ import { products } from '../../data/products';
 export default function ProductDetail() {
   const { id } = useParams();
   const product = products.find(p => p.id === id);
-  const [activeImg, setActiveImg] = useState(product?.image);
+  const [activeMedia, setActiveMedia] = useState({ type: 'image', url: product?.image });
 
   if (!product) {
     return (
@@ -32,29 +32,56 @@ export default function ProductDetail() {
           
           {/* Gallery Column */}
           <div className="lg:w-1/2 space-y-6">
-            {/* Main Image */}
+            {/* Main Media Display */}
             <div className="bg-white rounded-[2rem] overflow-hidden shadow-2xl relative aspect-square">
-              <img 
-                src={activeImg} 
-                alt={product.name} 
-                className="w-full h-full object-contain p-8 md:p-12 transition-all duration-700" 
-              />
-              <div className="absolute top-8 left-8 bg-accent text-primary text-[9px] font-bold px-4 py-1.5 rounded-full uppercase tracking-tighter">
+              {activeMedia.type === 'video' ? (
+                <div className="w-full h-full bg-black">
+                  <video 
+                    src={activeMedia.url} 
+                    className="w-full h-full object-cover"
+                    controls
+                    autoPlay
+                    playsInline
+                  />
+                </div>
+              ) : (
+                <img 
+                  src={activeMedia.url} 
+                  alt={product.name} 
+                  className="w-full h-full object-contain p-8 md:p-12 transition-all duration-700" 
+                />
+              )}
+              <div className="absolute top-8 left-8 bg-accent text-primary text-[9px] font-bold px-4 py-1.5 rounded-full uppercase tracking-tighter z-10">
                 Official Heritage Model
               </div>
             </div>
 
             {/* Thumbs */}
             <div className="grid grid-cols-4 md:grid-cols-6 gap-4">
+              {/* Image Thumbs */}
               {product.gallery?.map((img, idx) => (
                 <button 
                   key={idx}
-                  onClick={() => setActiveImg(img)}
-                  className={`aspect-square rounded-2xl overflow-hidden border-2 transition-all p-2 bg-white ${activeImg === img ? 'border-accent shadow-lg scale-105' : 'border-secondary/40'}`}
+                  onClick={() => setActiveMedia({ type: 'image', url: img })}
+                  className={`aspect-square rounded-2xl overflow-hidden border-2 transition-all p-2 bg-white ${activeMedia.type === 'image' && activeMedia.url === img ? 'border-accent shadow-lg scale-105' : 'border-secondary/40'}`}
                 >
                   <img src={img} alt={`${product.name} thumbnail ${idx}`} className="w-full h-full object-contain" />
                 </button>
               ))}
+              
+              {/* Video Thumb (if exists) */}
+              {product.video && (
+                <button 
+                  onClick={() => setActiveMedia({ type: 'video', url: product.video })}
+                  className={`aspect-square rounded-2xl overflow-hidden border-2 transition-all bg-primary relative flex items-center justify-center p-2 group ${activeMedia.type === 'video' ? 'border-accent shadow-lg scale-105' : 'border-secondary/40'}`}
+                >
+                  <div className="absolute inset-0 opacity-40 bg-black group-hover:opacity-20 transition-opacity" />
+                  <svg className="w-8 h-8 text-secondary relative z-10" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                  <span className="absolute bottom-1 text-[8px] font-bold text-secondary uppercase tracking-tighter z-10">Video Demo</span>
+                </button>
+              )}
             </div>
           </div>
 

@@ -26,6 +26,7 @@ import img4r13s_4 from '../assets/4Reed13Scale/4.jpg';
 import img4r13s_5 from '../assets/4Reed13Scale/5.jpg';
 import img4r13s_6 from '../assets/4Reed13Scale/6.jpg';
 import img4r13s_7 from '../assets/4Reed13Scale/7.jpg';
+import demoVideo from '../assets/video1.mp4';
 
 export const products = [
   {
@@ -44,7 +45,8 @@ export const products = [
       dimensions_closed: '23" x 15" x 7.5"',
       features: '4 Stops, 5 Drones, 7-Fold Bellows, Octave Coupler'
     },
-    collection: 'Signature Series'
+    collection: 'Signature Series',
+    video: demoVideo
   },
   {
     id: '3-reed-9-scale',
@@ -62,7 +64,8 @@ export const products = [
       dimensions_closed: '25.5" x 15.5" x 8"',
       features: 'Folds into Suitcase-Style Box, Hand-tuned by Paul Babu'
     },
-    collection: 'Signature Series'
+    collection: 'Signature Series',
+    video: demoVideo
   },
   {
     id: '3-reed-11-scale',
@@ -80,7 +83,8 @@ export const products = [
       dimensions_closed: '27.5" x 15.5" x 8"',
       features: 'Coupler, 7-Fold Bellows, 4 Stops, 7 Drones'
     },
-    collection: 'Signature Series'
+    collection: 'Signature Series',
+    video: demoVideo
   },
   {
     id: '4-reed-13-scale',
@@ -98,6 +102,7 @@ export const products = [
       dimensions_closed: '27.75" x 17" x 8"',
       features: 'Octave Coupler, 7-Fold Bellows, Suits Master Artists'
     },
-    collection: 'Masterpiece Collection'
+    collection: 'Masterpiece Collection',
+    video: demoVideo
   }
 ];
