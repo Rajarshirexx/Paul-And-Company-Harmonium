@@ -5,6 +5,7 @@ import ScrollToTop from './Components/Global/ScrollToTop';
 import Home from './Pages/Home/Home';
 import About from './Pages/About/About';
 import Product from './Pages/Product/Product';
+import ProductDetail from './Pages/Product/ProductDetail';
 import Contact from './Pages/Contact/Contact';
 import './App.css';
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Product />} />
+            <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
